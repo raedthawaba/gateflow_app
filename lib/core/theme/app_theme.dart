@@ -1,262 +1,284 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-/// ملف الثيم الرئيسي لتطبيق GateFlow
-/// Main theme file for GateFlow application
+/// إعدادات الثيم الخاصة بالنظام
 class AppTheme {
-  /// تعريف الألوان الرئيسية
-  /// Primary colors definition
-  static const Color primaryColor = Color(0xFF1A73E8);
-  static const Color primaryDarkColor = Color(0xFF1557B0);
-  static const Color primaryLightColor = Color(0xFF4285F4);
-  static const Color secondaryColor = Color(0xFF34A853);
-  static const Color accentColor = Color(0xFFEA4335);
-  static const Color warningColor = Color(0xFFFBBC04);
-  static const Color errorColor = Color(0xFFEA4335);
-  static const Color successColor = Color(0xFF34A853);
-  static const Color infoColor = Color(0xFF2196F3);
+  // ألوان النظام الرئيسية
+  static const Color primaryColor = Color(0xFF1A237E); // أزرق عسكري داكن
+  static const Color secondaryColor = Color(0xFF455A64); // رمادي معدني
+  static const Color accentColor = Color(0xFFFFC107); // ذهبي للتحذيرات
+  static const Color successColor = Color(0xFF4CAF50); // أخضر للنجاح
+  static const Color errorColor = Color(0xFFF44336); // أحمر للأخطاء
+  static const Color warningColor = Color(0xFFFF9800); // برتقالي للتحذيرات
+  static const Color infoColor = Color(0xFF2196F3); // أزرق للمعلومات
 
-  /// ألوان الخلفية
-  /// Background colors
-  static const Color backgroundLight = Color(0xFFF8F9FA);
-  static const Color surfaceLight = Colors.white;
-  static const Color backgroundDark = Color(0xFF121212);
-  static const Color surfaceDark = Color(0xFF1E1E1E);
+  // ألوان الأقسام
+  static const Color armamentColor = Color(0xFFB71C1C); // أحمر للتسليح
+  static const Color supplyColor = Color(0xFF2E7D32); // أخضر للامداد
+  static const Color technicalColor = Color(0xFF1565C0); // أزرق للشعبة الفنية
+  static const Color hrColor = Color(0xFF6A1B9A); // بنفسجي للبشرية
 
-  /// ألوان النصوص
-  /// Text colors
-  static const Color textPrimaryLight = Color(0xFF202124);
-  static const Color textSecondaryLight = Color(0xFF5F6368);
-  static const Color textPrimaryDark = Color(0xFFE8EAED);
-  static const Color textSecondaryDark = Color(0xFF9AA0A6);
-
-  /// ثيم الوضع الفاتح
-  /// Light theme
-  static final ThemeData lightTheme = ThemeData(
-    useMaterial3: true,
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: primaryColor,
-      primary: primaryColor,
-      secondary: secondaryColor,
-      tertiary: accentColor,
-      error: errorColor,
-      surface: surfaceLight,
-      background: backgroundLight,
-    ),
-    scaffoldBackgroundColor: backgroundLight,
-    appBarTheme: const AppBarTheme(
-      backgroundColor: primaryColor,
-      foregroundColor: Colors.white,
-      elevation: 0,
-      centerTitle: true,
-    ),
-    cardTheme: CardThemeData(
-      color: surfaceLight,
-      elevation: 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+  // الثيم الفاتح
+  static ThemeData get lightTheme {
+    return ThemeData(
+      useMaterial3: true,
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: primaryColor,
+        primary: primaryColor,
+        secondary: secondaryColor,
+        tertiary: accentColor,
+        error: errorColor,
+        surface: Colors.grey[50]!,
+        onSurface: Colors.grey[900]!,
       ),
-    ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
+      scaffoldBackgroundColor: Colors.grey[50],
+      appBarTheme: const AppBarTheme(
         backgroundColor: primaryColor,
         foregroundColor: Colors.white,
-        padding: const EdgeInsets.symmetric(
-          horizontal: 24,
-          vertical: 12,
-        ),
+        elevation: 0,
+        centerTitle: true,
+      ),
+      drawerTheme: DrawerThemeData(
+        backgroundColor: Colors.white,
+        surfaceTintColor: Colors.white,
+      ),
+      cardTheme: CardTheme(
+        elevation: 2,
         shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        surfaceTintColor: Colors.white,
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: primaryColor,
+          foregroundColor: Colors.white,
+          padding: const EdgeInsets.symmetric(
+            horizontal: 24,
+            vertical: 12,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          textStyle: GoogleFonts.cairo(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+          foregroundColor: primaryColor,
+          padding: const EdgeInsets.symmetric(
+            horizontal: 24,
+            vertical: 12,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          textStyle: GoogleFonts.cairo(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(
+          foregroundColor: primaryColor,
+          textStyle: GoogleFonts.cairo(
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: Colors.white,
+        border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
+          borderSide: const BorderSide(color: Colors.grey300),
         ),
-      ),
-    ),
-    outlinedButtonTheme: OutlinedButtonThemeData(
-      style: OutlinedButton.styleFrom(
-        foregroundColor: primaryColor,
-        padding: const EdgeInsets.symmetric(
-          horizontal: 24,
-          vertical: 12,
-        ),
-        shape: RoundedRectangleBorder(
+        enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
+          borderSide: const BorderSide(color: Colors.grey300),
         ),
-        side: const BorderSide(color: primaryColor),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: const BorderSide(color: primaryColor, width: 2),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: const BorderSide(color: errorColor),
+        ),
+        labelStyle: GoogleFonts.cairo(
+          color: Colors.grey[700],
+        ),
+        hintStyle: GoogleFonts.cairo(
+          color: Colors.grey[500],
+        ),
       ),
-    ),
-    inputDecorationTheme: InputDecorationTheme(
-      filled: true,
-      fillColor: surfaceLight,
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(color: Colors.grey),
+      textTheme: GoogleFonts.cairoTextTheme(),
+      dividerTheme: const DividerThemeData(
+        color: Colors.grey200,
+        thickness: 1,
       ),
-      enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        borderSide: BorderSide(color: Colors.grey.shade300),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(color: primaryColor, width: 2),
-      ),
-      errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(color: errorColor),
-      ),
-      labelStyle: const TextStyle(color: textSecondaryLight),
-      prefixIconColor: primaryColor,
-      suffixIconColor: textSecondaryLight,
-    ),
-    iconTheme: const IconThemeData(
-      color: primaryColor,
-    ),
-    floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      backgroundColor: primaryColor,
-      foregroundColor: Colors.white,
-    ),
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: surfaceLight,
-      selectedItemColor: primaryColor,
-      unselectedItemColor: textSecondaryLight,
-    ),
-  );
+    );
+  }
 
-  /// ثيم الوضع الداكن
-  /// Dark theme
-  static final ThemeData darkTheme = ThemeData(
-    useMaterial3: true,
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: primaryLightColor,
-      primary: primaryLightColor,
-      secondary: secondaryColor,
-      tertiary: accentColor,
-      error: errorColor,
-      surface: surfaceDark,
-      background: backgroundDark,
-      brightness: Brightness.dark,
-    ),
-    scaffoldBackgroundColor: backgroundDark,
-    appBarTheme: const AppBarTheme(
-      backgroundColor: surfaceDark,
-      foregroundColor: textPrimaryDark,
-      elevation: 0,
-      centerTitle: true,
-    ),
-    cardTheme: CardThemeData(
-      color: surfaceDark,
-      elevation: 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+  // الثيم الداكن
+  static ThemeData get darkTheme {
+    return ThemeData(
+      useMaterial3: true,
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: primaryColor,
+        primary: primaryColor,
+        secondary: secondaryColor,
+        tertiary: accentColor,
+        error: errorColor,
+        surface: Colors.grey[900]!,
+        onSurface: Colors.grey[100]!,
+        brightness: Brightness.dark,
       ),
-    ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: primaryLightColor,
+      scaffoldBackgroundColor: Colors.grey[900],
+      appBarTheme: const AppBarTheme(
+        backgroundColor: primaryColor,
         foregroundColor: Colors.white,
-        padding: const EdgeInsets.symmetric(
-          horizontal: 24,
-          vertical: 12,
-        ),
+        elevation: 0,
+        centerTitle: true,
+      ),
+      drawerTheme: DrawerThemeData(
+        backgroundColor: Colors.grey[850],
+        surfaceTintColor: Colors.grey[850],
+      ),
+      cardTheme: CardTheme(
+        elevation: 2,
         shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        surfaceTintColor: Colors.grey[850],
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: primaryColor,
+          foregroundColor: Colors.white,
+          padding: const EdgeInsets.symmetric(
+            horizontal: 24,
+            vertical: 12,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          textStyle: GoogleFonts.cairo(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+          foregroundColor: primaryColor,
+          padding: const EdgeInsets.symmetric(
+            horizontal: 24,
+            vertical: 12,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          textStyle: GoogleFonts.cairo(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(
+          foregroundColor: primaryColor,
+          textStyle: GoogleFonts.cairo(
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: Colors.grey[800],
+        border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
+          borderSide: const BorderSide(color: Colors.grey600),
         ),
-      ),
-    ),
-    outlinedButtonTheme: OutlinedButtonThemeData(
-      style: OutlinedButton.styleFrom(
-        foregroundColor: primaryLightColor,
-        padding: const EdgeInsets.symmetric(
-          horizontal: 24,
-          vertical: 12,
-        ),
-        shape: RoundedRectangleBorder(
+        enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
+          borderSide: const BorderSide(color: Colors.grey600),
         ),
-        side: const BorderSide(color: primaryLightColor),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: const BorderSide(color: primaryColor, width: 2),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: const BorderSide(color: errorColor),
+        ),
+        labelStyle: GoogleFonts.cairo(
+          color: Colors.grey[400],
+        ),
+        hintStyle: GoogleFonts.cairo(
+          color: Colors.grey[500],
+        ),
       ),
-    ),
-    inputDecorationTheme: InputDecorationTheme(
-      filled: true,
-      fillColor: surfaceDark,
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(color: Colors.grey),
+      textTheme: GoogleFonts.cairoTextTheme(ThemeData.dark().textTheme),
+      dividerTheme: const DividerThemeData(
+        color: Colors.grey700,
+        thickness: 1,
       ),
-      enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        borderSide: BorderSide(color: Colors.grey.shade700),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(color: primaryLightColor, width: 2),
-      ),
-      errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(color: errorColor),
-      ),
-      labelStyle: const TextStyle(color: textSecondaryDark),
-      prefixIconColor: primaryLightColor,
-      suffixIconColor: textSecondaryDark,
-    ),
-    iconTheme: const IconThemeData(
-      color: primaryLightColor,
-    ),
-    floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      backgroundColor: primaryLightColor,
-      foregroundColor: Colors.white,
-    ),
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: surfaceDark,
-      selectedItemColor: primaryLightColor,
-      unselectedItemColor: textSecondaryDark,
-    ),
-  );
+    );
+  }
 
-  /// دالة للحصول على لون الحالة
-  /// Function to get status color
-  static Color getStatusColor(String status) {
-    switch (status.toUpperCase()) {
-      case "ACTIVE":
-      case "OPEN":
-      case "NEW":
-      case "SUCCESS":
-        return successColor;
-      case "INACTIVE":
-      case "CLOSED":
-      case "DISMISSED":
-        return Colors.grey;
-      case "PENDING":
-      case "IN_PROGRESS":
-        return warningColor;
-      case "EXPIRED":
-      case "SUSPENDED":
-      case "REVOKED":
-        return Colors.orange;
-      case "BLOCKED":
-      case "CONFISCATED":
-      case "STOLEN":
-      case "LOST":
-      case "CRITICAL":
-      case "ESCALATED":
-      case "ERROR":
-        return errorColor;
+  /// دالة مساعدة للحصول على لون القسم
+  static Color getDepartmentColor(String department) {
+    switch (department.toLowerCase()) {
+      case 'armament':
+      case 'تسليح':
+        return armamentColor;
+      case 'supply':
+      case 'امداد':
+        return supplyColor;
+      case 'technical':
+      case 'تقني':
+        return technicalColor;
+      case 'human_resources':
+      case 'بشرية':
+        return hrColor;
       default:
-        return infoColor;
+        return primaryColor;
     }
   }
 
-  /// دالة للحصول على لون شدة التنبيه
-  /// Function to get alert severity color
-  static Color getSeverityColor(String severity) {
-    switch (severity.toUpperCase()) {
-      case "CRITICAL":
-        return errorColor;
-      case "HIGH":
-        return Colors.orange;
-      case "MEDIUM":
-        return warningColor;
-      case "LOW":
-        return infoColor;
+  /// دالة مساعدة للحصول على أيقونة القسم
+  static IconData getDepartmentIcon(String department) {
+    switch (department.toLowerCase()) {
+      case 'armament':
+      case 'تسليح':
+        return Icons.security;
+      case 'supply':
+      case 'امداد':
+        return Icons.inventory_2;
+      case 'technical':
+      case 'تقني':
+        return Icons.build;
+      case 'human_resources':
+      case 'بشرية':
+        return Icons.people;
       default:
-        return Colors.grey;
+        return Icons.dashboard;
     }
   }
+}
+
+/// إضافة Extensions مفيدة
+extension ThemeExtension on BuildContext {
+  ThemeData get theme => Theme.of(this);
+  Color get primaryColor => theme.colorScheme.primary;
+  Color get secondaryColor => theme.colorScheme.secondary;
+  Color get errorColor => theme.colorScheme.error;
+  TextTheme get textTheme => theme.textTheme;
 }
