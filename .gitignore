@@ -1,71 +1,4 @@
 # ==============================================================================
-# FLUTTER SPECIFIC
-# ==============================================================================
-# Flutter/Dart specific files and directories
-.pub-cache/
-.pub/
-.dart_tool/
-.packages
-build/
-.flutter-plugins
-.flutter-plugins-dependencies
-
-# Android specific
-android/.gradle
-android/local.properties
-android/key.properties
-android/.gitignore
-android/app/.classpath
-android/app/build.gradle
-android/app/src/main/java/
-android/app/src/main/kotlin/
-android/app/src/debug/
-android/app/src/main/AndroidManifest.xml
-android/app/src/main/res/
-android/app/src/main/res/drawable/
-android/app/src/main/res/mipmap-hdpi/
-android/app/src/main/res/mipmap-mdpi/
-android/app/src/main/res/mipmap-xhdpi/
-android/app/src/main/res/mipmap-xxhdpi/
-android/app/src/main/res/mipmap-xxxhdpi/
-android/app/src/main/res/values/
-android/app/src/main/res/xml/
-android/app/src/profile/
-android/gradle/wrapper/gradle-wrapper.jar
-android/gradle/wrapper/gradle-wrapper.properties
-android/gradle.properties
-android/settings.gradle
-
-# iOS specific
-ios/.gitignore
-ios/Pods/
-ios/Podfile.lock
-ios/Runner/.gitignore
-ios/Runner/Assets.xcassets/
-ios/Runner/GeneratedPluginRegistrant.m
-
-# Web specific
-web/index.html
-web/favicon.png
-
-# Linux specific
-linux/.gitignore
-linux/flutter/generated_plugin_registrant.cc
-linux/flutter/generated_plugin_registrant.h
-linux/flutter/ephemeral/
-
-# macOS specific
-macos/.gitignore
-macos/Flutter/GeneratedPluginRegistrant.swift
-macos/Flutter/ephemeral/
-
-# Windows specific
-windows/.gitignore
-windows/flutter/generated_plugin_registrant.cc
-windows/flutter/generated_plugin_registrant.h
-windows/flutter/ephemeral/
-
-# ==============================================================================
 # COMPREHENSIVE .GITIGNORE TEMPLATE
 # ==============================================================================
 # This template covers most common development scenarios and tools
@@ -85,6 +18,7 @@ windows/flutter/ephemeral/
 **/downloads/
 **/eggs/
 **/.eggs/
+**/lib/
 **/lib64/
 **/parts/
 **/sdist/
@@ -964,3 +898,11 @@ windows/flutter/ephemeral/
 # Claude Agent SDK debug files
 **/.claude/debug/
 **/.claude/debug/**
+
+# ==============================================================================
+# NESTED GIT REPOSITORIES
+# ==============================================================================
+# Temporarily renamed .git directories (used by WorkspaceGitManager)
+# This allows outer git to track inner repo files while preserving inner git history
+**/.git_backup_by_agent
+**/.git_backup_by_agent/
